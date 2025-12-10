@@ -1,28 +1,29 @@
 import PropTypes from "prop-types";
-import { Link, NavLink } from "react-router-dom";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { XMarkIcon, ArrowLeftOnRectangleIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import {
   Button,
   IconButton,
   Typography,
 } from "@material-tailwind/react";
 import { useMaterialTailwindController, setOpenSidenav } from "@/context";
-
-// 🔥 IMPORT ROLE CONTEXT
-import { useContext } from "react";
-import { AuthContext } from "@/auth/AuthContext";
+import { useAuth } from "@/auth/useAuth";
 
 export function Sidenav({ brandImg, brandName, routes }) {
-
+  const { logout } = useAuth();
   const [controller, dispatch] = useMaterialTailwindController();
   const { sidenavColor, sidenavType, openSidenav } = controller;
-
+  const navigate = useNavigate();
   const sidenavTypes = {
     dark: "bg-gradient-to-br from-gray-800 to-gray-900",
     white: "bg-white shadow-sm",
     transparent: "bg-transparent",
   };
-  
+
+  const handleLogout = () => {
+    logout();
+    navigate("/auth/sign-in");
+  };
 
   return (
     <aside
@@ -95,6 +96,18 @@ export function Sidenav({ brandImg, brandName, routes }) {
           </ul>
         ))}
       </div>
+      <div className="absolute bottom-6 left-10 right-10">
+        <Button
+          variant="filled"
+          color="black"
+          className="w-full py-2 flex items-center justify-center gap-2 font-semibold normal-case shadow-md shadow-blue-gray-200"
+          onClick={handleLogout}
+        >
+          <ArrowLeftOnRectangleIcon className="h-5 w-5 text-white" />
+          Logout
+        </Button>
+      </div>
+    
     </aside>
   );
 }

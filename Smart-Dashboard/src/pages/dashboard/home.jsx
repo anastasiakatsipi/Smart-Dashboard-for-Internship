@@ -119,10 +119,6 @@ export function Home() {
             Live insights into energy, environment & mobility across Rhodes.
           </Typography>
         </div>
-
-        <Button color="blue-gray" onClick={loadData} disabled={loading}>
-          {loading ? "Loading..." : "Refresh"}
-        </Button>
       </div>
 
       {/* ---------- KPI CARDS ---------- */}

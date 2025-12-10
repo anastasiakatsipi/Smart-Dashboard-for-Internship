@@ -43,8 +43,6 @@ serve(async (req) => {
 
     if (orgError) throw orgError;
 
-    // IMPORTANT FIX:
-    // The primary key is organization_id, not id
     const orgId = org.organization_id;
 
     // 6. Add user as owner

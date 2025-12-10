@@ -6,7 +6,7 @@ import {
   ServerStackIcon,
   RectangleStackIcon,
 } from "@heroicons/react/24/solid";
-import { Home, Energy, Environment, Mobility } from "@/pages/dashboard";
+import { Home, Energy, Environment, Mobility, Documentation } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
 
 const icon = {
@@ -22,28 +22,41 @@ export const routes = [
         name: "dashboard",
         path: "/home",
         element: <Home />,
-        roles: ["areamanager","admin", "user", "manager"], // allowed roles
+        roles: ["areamanager","admin", "user", "manager"],
       },
       {
         icon: <BoltIcon {...icon} />,
         name: "energy",
         path: "/energy",
         element: <Energy />,
-        roles: ["areamanager","admin", "manager"], // μόνο admin
+        roles: ["areamanager","admin", "manager"],
       },
       {
         icon: <GlobeAmericasIcon {...icon} />,
         name: "environment",
         path: "/environment",
         element: <Environment />,
-        roles: ["areamanager","admin", "manager"], // admin + manager
+        roles: ["areamanager","admin", "manager"],
       },
       {
         icon: <TruckIcon {...icon} />,
         name: "mobility",
         path: "/mobility",
         element: <Mobility />,
-        roles: ["areamanager","user", "admin"], // user + admin
+        roles: ["areamanager","user", "admin"],
+      },
+    ],
+  },
+  {
+    layout: "dashboard",
+    title: "Documentation",
+    pages: [
+      {
+        icon: <RectangleStackIcon {...icon} />,
+        name: "documentation",
+        path: "/documentation",
+        element: <Documentation />,
+        roles: ["areamanager","user", "admin", "manager"],
       },
     ],
   },
@@ -56,12 +69,10 @@ export const routes = [
         name: "sign in",
         path: "/sign-in",
         element: <SignIn />,
-        roles: ["*"], // public
+        roles: ["*"],
       },
     ],
   },
 ];
-
-
 
 export default routes;

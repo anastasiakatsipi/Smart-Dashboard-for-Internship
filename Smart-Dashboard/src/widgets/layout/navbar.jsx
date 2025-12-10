@@ -70,7 +70,7 @@ export function Navbar({ brandName, routes, action }) {
           className: "hidden lg:inline-block",
         })}
 
-        {/* 🔥 ΕΔΩ ΤΟ LOGOUT BUTTON */}
+        🔥 ΕΔΩ ΤΟ LOGOUT BUTTON
         <button
           onClick={handleLogout}
           className="text-red-500 font-semibold ml-4 hidden lg:block"
