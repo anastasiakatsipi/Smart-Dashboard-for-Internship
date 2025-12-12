@@ -54,7 +54,7 @@ async function isOwner(uid: string, organization_id: string) {
 
 Deno.serve(async (req) => {
   const url = new URL(req.url);
-  const path = url.pathname.replace("/create-user-and-add-to-org", ""); // keep your original structure
+  const path = url.pathname.replace("/manage_members", ""); // keep your original structure
 
   // HEALTH CHECK (public)
   if (path === "/health") {

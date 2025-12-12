@@ -180,7 +180,7 @@ async function runFullSync() {
 // HTTP ENTRYPOINT
 // ----------------------------
 serve(async () => {
-  console.log("🔥 hyper-api HIT");
+  console.log("🔥 update-historic HIT");
 
   const results = await runFullSync();
 
