@@ -25,7 +25,6 @@ import { ButtonTooltip } from 'components/ui/ButtonTooltip'
 import { DropdownMenuItemTooltip } from 'components/ui/DropdownMenuItemTooltip'
 import { EntityTypeIcon } from 'components/ui/EntityTypeIcon'
 import SchemaSelector from 'components/ui/SchemaSelector'
-import { GenericSkeletonLoader } from 'components/ui/ShimmeringLoader'
 import { useDatabasePublicationsQuery } from 'data/database-publications/database-publications-query'
 import { ENTITY_TYPE } from 'data/entity-types/entity-type-constants'
 import { useForeignTablesQuery } from 'data/foreign-tables/foreign-tables-query'
@@ -61,6 +60,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from 'ui'
+import { GenericSkeletonLoader } from 'ui-patterns/ShimmeringLoader'
 import { ProtectedSchemaWarning } from '../ProtectedSchemaWarning'
 import { formatAllEntities } from './Tables.utils'
 
@@ -97,7 +97,7 @@ export const TableList = ({
     data: tables,
     error: tablesError,
     isError: isErrorTables,
-    isLoading: isLoadingTables,
+    isPending: isLoadingTables,
     isSuccess: isSuccessTables,
   } = useTablesQuery(
     {
@@ -120,7 +120,7 @@ export const TableList = ({
     data: views,
     error: viewsError,
     isError: isErrorViews,
-    isLoading: isLoadingViews,
+    isPending: isLoadingViews,
     isSuccess: isSuccessViews,
   } = useViewsQuery(
     {
@@ -141,7 +141,7 @@ export const TableList = ({
     data: materializedViews,
     error: materializedViewsError,
     isError: isErrorMaterializedViews,
-    isLoading: isLoadingMaterializedViews,
+    isPending: isLoadingMaterializedViews,
     isSuccess: isSuccessMaterializedViews,
   } = useMaterializedViewsQuery(
     {
@@ -164,7 +164,7 @@ export const TableList = ({
     data: foreignTables,
     error: foreignTablesError,
     isError: isErrorForeignTables,
-    isLoading: isLoadingForeignTables,
+    isPending: isLoadingForeignTables,
     isSuccess: isSuccessForeignTables,
   } = useForeignTablesQuery(
     {

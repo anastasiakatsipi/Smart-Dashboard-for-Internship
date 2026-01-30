@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { Button } from 'ui'
 
 import AlertError from 'components/ui/AlertError'
-import { GenericSkeletonLoader } from 'components/ui/ShimmeringLoader'
 import { useForeignKeyConstraintsQuery } from 'data/database/foreign-key-constraints-query'
 import { useQuerySchemaState } from 'hooks/misc/useSchemaQueryState'
 import { useSelectedProjectQuery } from 'hooks/misc/useSelectedProject'
 import type { ResponseError } from 'types'
+import { GenericSkeletonLoader } from 'ui-patterns/ShimmeringLoader'
 import { ForeignKeySelector } from '../../ForeignKeySelector/ForeignKeySelector'
 import type { ForeignKey } from '../../ForeignKeySelector/ForeignKeySelector.types'
 import type { TableField } from '../TableEditor.types'
@@ -34,7 +34,13 @@ export const ForeignKeysManagement = ({
   const [open, setOpen] = useState(false)
   const [selectedFk, setSelectedFk] = useState<ForeignKey>()
 
-  const { data, error, isLoading, isSuccess, isError } = useForeignKeyConstraintsQuery({
+  const {
+    data,
+    error,
+    isPending: isLoading,
+    isSuccess,
+    isError,
+  } = useForeignKeyConstraintsQuery({
     projectRef: project?.ref,
     connectionString: project?.connectionString,
     schema: selectedSchema,

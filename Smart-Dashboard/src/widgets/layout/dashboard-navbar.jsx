@@ -45,7 +45,7 @@ export function DashboardNavbar() {
       color={fixedNavbar ? "white" : "transparent"}
       className={`rounded-xl transition-all ${
         fixedNavbar
-          ? "sticky top-4 z-40 py-3 shadow-md shadow-blue-gray-500/5"
+          ? "sticky top-4 z-[8000] py-3 shadow-md shadow-blue-gray-500/5"
           : "px-5 py-1"
       }`}
       fullWidth
@@ -114,7 +114,7 @@ export function DashboardNavbar() {
                 <BellIcon className="h-5 w-5 text-blue-gray-500" />
               </IconButton>
             </MenuHandler>
-            <MenuList className="w-max border-0">
+            {/* <MenuList className="w-max border-0">
               <MenuItem className="flex items-center gap-3">
                 <Avatar
                   src="https://demos.creative-tim.com/material-dashboard/assets/img/team-2.jpg"
@@ -183,8 +183,8 @@ export function DashboardNavbar() {
                     <ClockIcon className="h-3.5 w-3.5" /> 2 days ago
                   </Typography>
                 </div>
-              </MenuItem>
-            </MenuList>
+              </MenuItem> 
+            </MenuList>*/}
           </Menu>
           <IconButton
             variant="text"
